@@ -15,7 +15,7 @@ from regression_model.processing.features import get_data
 
 app = FastAPI()
 
-pickle_in = open('grid.pkl','rb')
+pickle_in = open('regression_model_output_v0.0.1.pkl','rb')
 
 grid_model = joblib.load(pickle_in)
 feat_list = ['bed','bathroom','year_built','heating','Property_type','area','county','zipcode']
@@ -66,4 +66,5 @@ def predict_house(data:HousePrice):
 
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='127.0.0.1', port=8000)
+    uvicorn.run(app, host='0.0.0.0', port=8000)
+    # uvicorn.run(app, host='127.0.0.1', port=8000)
